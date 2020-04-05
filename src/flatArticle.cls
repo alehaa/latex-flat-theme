@@ -61,6 +61,8 @@
 % Load required packages
 % ======================
 
+\RequirePackage{amssymb}
+\RequirePackage{enumitem}
 \RequirePackage{geometry}
 \RequirePackage{xcolor}
 
@@ -100,3 +102,10 @@
 % individual paragraphs.
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2ex plus1ex minus0.5ex}
+
+% Align elements of 'enumerate' and 'itemize' environments with the surrounding
+% text left-bound. The default label item will be replaced by a little squared
+% box with the secondary color applied.
+\setenumerate{itemsep=0pt, topsep=0pt, leftmargin=1.3em}
+\setitemize{  itemsep=0pt, topsep=0pt, leftmargin=1.3em}
+\renewcommand{\labelitemi}{\color{secondary}$\blacksquare$}
