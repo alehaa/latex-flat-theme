@@ -64,6 +64,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{enumitem}
 \RequirePackage{geometry}
+\RequirePackage{sectsty}
 \RequirePackage{xcolor}
 
 % The default font for this theme is Roboto, a modern sans-serif font designed
@@ -102,6 +103,13 @@
 % individual paragraphs.
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2ex plus1ex minus0.5ex}
+
+
+% Use colorized section headings with a font larger than the usual article
+% headings have and just a usual font weight instead of a bold one.
+      \sectionfont{\normalfont\LARGE\color{primary}}
+   \subsectionfont{\normalfont\large\color{secondary}}
+\subsubsectionfont{\normalfont\normalsize\color{primary}}
 
 % Align elements of 'enumerate' and 'itemize' environments with the surrounding
 % text left-bound. The default label item will be replaced by a little squared
