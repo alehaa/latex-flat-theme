@@ -32,11 +32,22 @@
 % NOTE: The options need to be processed BEFORE loading the base class, as some
 %       of them might not be evaluated otherwise.
 
+\RequirePackage{kvoptions}
+
+% Color palette options.
+%
+% For the basic elements of this theme, two colors are used: a primary and
+% secondary one. These can be configured as options for this theme class, so the
+% user can select a different color scheme.
+\DeclareStringOption[cyan]{primaryColor}
+\DeclareStringOption[magenta]{secondaryColor}
+
 % Process all defined options. Options not defined by this class will be passed
 % through to its parent class automatically, so options available by the default
 % article class (e.g. 'twoside' and 'twocolumn') may be used in this theme.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
+\ProcessKeyvalOptions*
 
 
 % ===============
@@ -51,11 +62,28 @@
 % ======================
 
 \RequirePackage{geometry}
+\RequirePackage{xcolor}
 
 % The default font for this theme is Roboto, a modern sans-serif font designed
 % by Christian Robertson for Google and licensed under the Apache license, which
 % makes it free to use for any kind of document.
 \RequirePackage[sfdefault,light]{roboto}
+
+
+% =============
+% Color palette
+% =============
+
+% Define two color aliases for the primary and secondary colors, which can be
+% configured by options of this theme class.
+%
+% NOTE: These aliases need to be assigned at the begin of the document block, as
+%       they might use colors defined in the preamble of the LaTeX file using
+%       this theme class.
+\AtBeginDocument{
+    \colorlet{primary}{\flatArticle@primaryColor}
+    \colorlet{secondary}{\flatArticle@secondaryColor}
+}
 
 
 % =================
