@@ -117,3 +117,11 @@
 \setenumerate{itemsep=0pt, topsep=0pt, leftmargin=1.3em}
 \setitemize{  itemsep=0pt, topsep=0pt, leftmargin=1.3em}
 \renewcommand{\labelitemi}{\color{secondary}$\blacksquare$}
+
+
+% Increase the horizontal space between two text columns for better readability
+% on pages with small font size and high text density.
+%
+% NOTE: This setting will affect documents with the 'twocolumn' option enabled
+%       only, or if the 'multicol' package is used.
+\setlength{\columnsep}{1.5em}
