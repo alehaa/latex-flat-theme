@@ -141,6 +141,11 @@
 \newlength{\flatPageNumWidth}
 \setlength{\flatPageNumWidth}{2em}
 
+% Margin between page border and the page number box, used by the 'flat' page
+% style for borderless printing.
+\newlength{\flatPageNumOuterMargin}
+\setlength{\flatPageNumOuterMargin}{1em}
+
 % Define the default page style to be used by the document.
 %
 % NOTE: The page style needs to be set inside the document section, so geometry
@@ -188,7 +193,7 @@
     \newlength{\flatPageNumMargin}
     \setlength{\flatPageNumMargin}{1in + \evensidemargin
                                    - \flatPageNumWidth
-                                   - 1em
+                                   - \flatPageNumOuterMargin
                                    - 2\fboxsep}
 
     % Finally, define the footer to include the page numbers. For a borderless
