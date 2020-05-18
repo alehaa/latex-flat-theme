@@ -62,7 +62,9 @@
 % ======================
 
 \RequirePackage{amssymb}
+\RequirePackage{calc}
 \RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
 \RequirePackage{geometry}
 \RequirePackage{sectsty}
 \RequirePackage{xcolor}
@@ -125,3 +127,91 @@
 % NOTE: This setting will affect documents with the 'twocolumn' option enabled
 %       only, or if the 'multicol' package is used.
 \setlength{\columnsep}{1.5em}
+
+
+% ============
+% Page numbers
+% ============
+
+% Width of the page number box.
+%
+% NOTE: The `\flatPageNumWidth` will NOT be enlarged to fit in the actual page
+%       number. Additional text may be truncated, if the length doesn't provide
+%       enough space for the maximum page number.
+\newlength{\flatPageNumWidth}
+\setlength{\flatPageNumWidth}{2em}
+
+% Define the default page style to be used by the document.
+%
+% NOTE: The page style needs to be set inside the document section, so geometry
+%       changes can be used by the fancyhdr package. Otherwise the default
+%       geometry of this class will be used instead of the custom defined one of
+%       the LaTeX document using this class.
+%
+% NOTE: As the page style is defined at the beginning of the document section, a
+%       custom page style needs to be defined AFTER this one is loaded, i.e. in
+%       the document section instead of the preamble.
+\AtBeginDocument{
+    \pagestyle{flat}
+}
+
+% Create the page number box.
+%
+% This command creates a little box with a fixed width including the page number
+% of the current page. The width of the box can be defined by setting the
+% `\flatPageNumWidth` length and will be consistent for all pages.
+%
+%
+% @param #1 text orientation (`l` or `r`)
+%
+\newcommand{\flatPageNum}[1]{%
+    \makebox[\flatPageNumWidth][#1]{%
+        \bfseries%
+        \color{white}%
+        \thepage%
+    }%
+}
+
+% Define the default 'flat' page style to print the page number in a little box
+% in the bottom corner of the page in a borderless design. This page style does
+% NOT include any kind of page header.
+\fancypagestyle{flat}{
+    \fancyhf{}
+
+    % Disable the head rule for this page style, which is not disabled by the
+    % `\fancyhf` command. As there is no specific disable command, its height
+    % simply gets reduced to zero, which makes it invisible.
+    \renewcommand{\headrulewidth}{0pt}
+
+    % Calculate the width between the page number box and the text, so it can be
+    % used as negative margin for positioning.
+    \newlength{\flatPageNumMargin}
+    \setlength{\flatPageNumMargin}{1in + \evensidemargin
+                                   - \flatPageNumWidth
+                                   - 1em
+                                   - 2\fboxsep}
+
+    % Finally, define the footer to include the page numbers. For a borderless
+    % design, an additional margin between the page border and the page number
+    % box will be filled in the same color as the page number box.
+
+    \fancyfoot[LE]{%
+        \makebox[0pt][r]{%
+            \colorbox{primary}{%
+                \makebox[1em]{}%
+                \flatPageNum{l}%
+            }%
+            \makebox[\flatPageNumMargin]{}%
+        }%
+    }
+
+    \fancyfoot[RO]{%
+        \makebox[0pt][l]{%
+            \makebox[\flatPageNumMargin]{}%
+            \colorbox{primary}{%
+                \flatPageNum{r}%
+                \makebox[1em]{}%
+            }%
+        }%
+    }
+}
