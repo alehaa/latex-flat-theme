@@ -190,11 +190,15 @@
 
     % Calculate the width between the page number box and the text, so it can be
     % used as negative margin for positioning.
-    \newlength{\flatPageNumMargin}
-    \setlength{\flatPageNumMargin}{1in + \evensidemargin
-                                   - \flatPageNumWidth
-                                   - \flatPageNumOuterMargin
-                                   - 2\fboxsep}
+    %
+    % NOTE: Instead of using a LaTeX length variable, a command will be defined,
+    %       so using it in '\makebox' dynamically calculates the margin for the
+    %       current page. This is necessary to allow dynamic altering the page
+    %       geometry.
+    \newcommand{\flatPageNumMargin}{1in + \evensidemargin
+                                    - \flatPageNumWidth
+                                    - \flatPageNumOuterMargin
+                                    - 2\fboxsep}
 
     % Finally, define the footer to include the page numbers. For a borderless
     % design, an additional margin between the page border and the page number
