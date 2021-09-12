@@ -1,7 +1,7 @@
 % This file is part of latex-flat-theme.
 %
 % Copyright (c)
-%   2020 Alexander Haase <ahaase@alexhaase.de>
+%   2020-2021 Alexander Haase <ahaase@alexhaase.de>
 %
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 % SOFTWARE.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{flatArticle}[2020/03/31 a flat and modern article class]
+\ProvidesClass{flatArticle}[2021/09/12 a flat and modern article class]
 
 
 % ===============
@@ -66,6 +66,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{fancyhdr}
 \RequirePackage{geometry}
+\RequirePackage{hyperref}
 \RequirePackage{sectsty}
 \RequirePackage{xcolor}
 
@@ -127,6 +128,20 @@
 % NOTE: This setting will affect documents with the 'twocolumn' option enabled
 %       only, or if the 'multicol' package is used.
 \setlength{\columnsep}{1.5em}
+
+
+% ========
+% hyperref
+% ========
+
+% Instead of using hyperref's colored borders for links, the link text itself
+% will be colorized in the colors of this theme. LaTeX files using this template
+% may override these settings to customize the appearance even further.
+\hypersetup{
+  colorlinks = true,
+  allcolors  = black,
+  urlcolor   = secondary,
+}
 
 
 % ============
