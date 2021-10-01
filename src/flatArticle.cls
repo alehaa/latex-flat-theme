@@ -135,11 +135,12 @@
 % ========
 
 % Instead of using hyperref's colored borders for links, the link text itself
-% will be colorized in the colors of this theme. LaTeX files using this template
-% may override these settings to customize the appearance even further.
+% will be colorized in the colors of this theme. Any other link won't be colored
+% by default, but LaTeX files using this template may override these settings to
+% customize the appearance even further.
 \hypersetup{
   colorlinks = true,
-  allcolors  = black,
+  allcolors  = .,
   urlcolor   = secondary,
 }
 
