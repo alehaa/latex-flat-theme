@@ -64,6 +64,14 @@ appearance:
 
   *Default: 1em*
 
+* **flatPageNumOverscan**:
+
+  Additional width of the page number box, that exceeds the document size. This
+  is especially useful in combination with the *crop* package, when the actual
+  printed page is larger than the designed page and will be cropped afterwards.
+
+  *Default: 1em*
+
 
 ## License
 

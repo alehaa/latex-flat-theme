@@ -162,6 +162,12 @@
 \newlength{\flatPageNumOuterMargin}
 \setlength{\flatPageNumOuterMargin}{1em}
 
+% Overscan of the page number box. This is especially useful in combination with
+% the 'crop' package, when the actual printed page is larger than the designed
+% page and will be cropped afterwards.
+\newlength{\flatPageNumOverscan}
+\setlength{\flatPageNumOverscan}{1em}
+
 % Define the default page style to be used by the document.
 %
 % NOTE: The page style needs to be set inside the document section, so geometry
@@ -223,7 +229,7 @@
     \fancyfoot[LE]{%
         \makebox[0pt][r]{%
             \colorbox{primary}{%
-                \makebox[\flatPageNumOuterMargin]{}%
+                \makebox[\flatPageNumOuterMargin + \flatPageNumOverscan]{}%
                 \flatPageNum{l}%
             }%
             \makebox[\flatPageNumMargin]{}%
@@ -235,7 +241,7 @@
             \makebox[\flatPageNumMargin]{}%
             \colorbox{primary}{%
                 \flatPageNum{r}%
-                \makebox[\flatPageNumOuterMargin]{}%
+                \makebox[\flatPageNumOuterMargin + \flatPageNumOverscan]{}%
             }%
         }%
     }
