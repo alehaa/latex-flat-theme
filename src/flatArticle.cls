@@ -223,7 +223,7 @@
     \fancyfoot[LE]{%
         \makebox[0pt][r]{%
             \colorbox{primary}{%
-                \makebox[1em]{}%
+                \makebox[\flatPageNumOuterMargin]{}%
                 \flatPageNum{l}%
             }%
             \makebox[\flatPageNumMargin]{}%
@@ -235,7 +235,7 @@
             \makebox[\flatPageNumMargin]{}%
             \colorbox{primary}{%
                 \flatPageNum{r}%
-                \makebox[1em]{}%
+                \makebox[\flatPageNumOuterMargin]{}%
             }%
         }%
     }
