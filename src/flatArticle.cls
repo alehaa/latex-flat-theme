@@ -1,7 +1,7 @@
 % This file is part of latex-flat-theme.
 %
 % Copyright (c)
-%   2020-2021 Alexander Haase <ahaase@alexhaase.de>
+%   2020-2022 Alexander Haase <ahaase@alexhaase.de>
 %
 % Permission is hereby granted, free of charge, to any person obtaining a copy
 % of this software and associated documentation files (the "Software"), to deal

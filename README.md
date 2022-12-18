@@ -77,4 +77,4 @@ appearance:
 
 This project is licensed under the [MIT License](LICENSE).
 
-&copy; 2020-2021 Alexander Haase
+&copy; 2020-2022 Alexander Haase
